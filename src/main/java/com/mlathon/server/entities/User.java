@@ -24,9 +24,10 @@ public class User implements Serializable {
     UserRole role;
     @Column(nullable=false, unique = true)
     private String email;
+    @JsonIgnore
     private String password;
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private Set<Contest> createdContests = new HashSet<>();
 

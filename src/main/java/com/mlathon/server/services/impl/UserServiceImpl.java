@@ -66,8 +66,8 @@ public class UserServiceImpl implements UserService {
     }
 
     //login
-    public UserDto userLogin(String email, String password, UserRole role) {
-        User user = this.userRepository.findByEmailAndPasswordAndRole(email, password, role);
+    public UserDto userLogin(String email, String password) {
+        User user = this.userRepository.findByEmailAndPassword(email, password);
         return this.UserToDto(user);
     }
 

@@ -1,5 +1,6 @@
 package com.mlathon.server.payload.response;
 
+import com.mlathon.server.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,5 @@ public class LoginResponseDto {
     private Integer userId;
     private String email;
     private String name;
+    private UserRole role;
 }

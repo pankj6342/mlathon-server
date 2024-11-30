@@ -20,45 +20,45 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Notes {
-	
-	@jakarta.persistence.Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Id;
 
-	private String Title;
-	
-	@Column(length = 1000)
-	private String Description;
+    @jakarta.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer Id;
 
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date date;
+    private String Title;
 
-	@ManyToOne
-	private User user;
+    @Column(length = 1000)
+    private String Description;
 
-	public Integer getId() {
-		return this.Id;
-	}
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
-	public void setId(Integer Id) {
-		this.Id = Id;
-	}
+    @ManyToOne
+    private User user;
 
-	public String getTitle() {
-		return this.Title;
-	}
+    public Integer getId() {
+        return this.Id;
+    }
 
-	public void setTitle(String Title) {
-		this.Title = Title;
-	}
+    public void setId(Integer Id) {
+        this.Id = Id;
+    }
 
-	public String getDescription() {
-		return this.Description;
-	}
+    public String getTitle() {
+        return this.Title;
+    }
 
-	public void setDescription(String Description) {
-		this.Description = Description;
-	}
-	
-	
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    public String getDescription() {
+        return this.Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+
 }

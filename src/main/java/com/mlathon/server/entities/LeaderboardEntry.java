@@ -1,29 +1,29 @@
-//package com.vivek.notes.entities;
-//import jakarta.persistence.*;
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-//
-//@Entity
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//@IdClass(LeaderboardEntryId.class)
-//public class LeaderboardEntry {
-//
-//    @Id
-//    @ManyToOne
-//    @JoinColumn(name = "contest_id", nullable = false) // Foreign key should match column name
-//    private Contest contest;
-//
-//    @Id
-//    @ManyToOne
-//    @JoinColumn(name = "participant_id", nullable = false) // Foreign key should match column name
-//    private User participant;
-//
-//    private Integer rank;
-//    private Integer score;
-//}
-//
+package com.mlathon.server.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mlathon.server.payload.UserInfoDto;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class LeaderboardEntry {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private UserInfoDto user;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "contest_id")
+    private Contest contest;
+    private LocalDateTime lastSubmissionDate;
+    private double bestScore;
+}

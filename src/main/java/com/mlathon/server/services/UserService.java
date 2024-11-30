@@ -20,6 +20,6 @@ public interface UserService {
     List<UserDto> getAllUser();
 
     //user login
-    UserDto userLogin(String email, String password, UserRole role);
+    UserDto userLogin(String email, String password);
     
 }

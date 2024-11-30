@@ -67,8 +67,8 @@ public class UserController {
     public ResponseEntity<LoginResponseDto> userLogin(@RequestBody LoginBody loginBody) {
         LoginResponseDto apiRes = new LoginResponseDto();
         try {
-            UserDto userDto = this.userService.userLogin(loginBody.getEmail(), loginBody.getPassword(), loginBody.getRole());
-            apiRes = new LoginResponseDto("", userDto.getId(), userDto.getEmail(), userDto.getName());
+            UserDto userDto = this.userService.userLogin(loginBody.getEmail(), loginBody.getPassword());
+            apiRes = new LoginResponseDto("000-000-000", userDto.getId(), userDto.getEmail(), userDto.getName(), userDto.getRole());
             return ResponseEntity.ok(apiRes);
         } catch (Exception e) {
             System.out.println("Error in logging in: " + e.getMessage());

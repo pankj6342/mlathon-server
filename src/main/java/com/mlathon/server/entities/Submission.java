@@ -1,4 +1,6 @@
 package com.mlathon.server.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mlathon.server.payload.UserInfoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,23 +14,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class Submission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long submissionId;
-
-    @ManyToOne
-    @JoinColumn(name = "participant_id")
-    private User participant;
-
+    private Integer submissionId;
+    private UserInfoDto user;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "contest_id")
     private Contest contest;
-
     private LocalDateTime submissionDate;
-
     private String filePath; // Path to the uploaded output file
-
-    private Integer score; // Initially null, updated later
+    private double score; // Initially null, updated later
 }
